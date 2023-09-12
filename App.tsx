@@ -9,14 +9,15 @@
 import { StyleSheet, Text, View } from 'react-native';
  
 
- 
+
+
  
 
 function App(): JSX.Element {
    
   return (
     <View>
-       
+       <Text style={{fontFamily:'Roboto-Medium',fontSize:45}}> Ola</Text>
     </View>
   );
 }
