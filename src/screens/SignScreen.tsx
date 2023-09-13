@@ -12,33 +12,18 @@ interface Props {
 export function SignScreen({ navigation }: Props): JSX.Element {
   return (
     <View style={styles.container}>
-      <Sign style={styles.formContainer} />
+      <Sign navigation={navigation}   />
 
-      <RedirectButton
-        style={styles.redirectContainer}
-         
-        onPress={() => navigation.navigate("Login")}
-      >
-        Already have an account?
-      </RedirectButton>
-
-      <PrimaryButton>SIGN UP</PrimaryButton>
+     
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: "center",
+    flex:1,
     backgroundColor: Colors.backgroundLight,
   },
-  formContainer: {
-    marginTop: 40,
-    paddingBottom: 40,
-  },
-  redirectContainer: {
-    width: "80%",
-    alignItems: "flex-end",
-    paddingBottom: 30,
-  },
+ 
+ 
 });

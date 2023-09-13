@@ -12,32 +12,14 @@ interface Props {
 export function LoginScreen({ navigation }: Props): JSX.Element {
   return (
     <View style={styles.container}>
-      <Login style={styles.formContainer} />
-
-      <RedirectButton
-        style={styles.redirectContainer}
-        onPress={() => navigation.navigate("ForgotPasswordScreen")}
-      >
-        Forgot your password?
-      </RedirectButton>
-
-      <PrimaryButton>LOGIN</PrimaryButton>
+      <Login navigation={navigation} />
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: "center",
+    flex:1,
     backgroundColor: Colors.backgroundLight,
-  },
-  formContainer: {
-    marginTop: 40,
-    paddingBottom: 40,
-  },
-  redirectContainer: {
-    width: "80%",
-    alignItems: "flex-end",
-    paddingBottom: 30,
   },
 });

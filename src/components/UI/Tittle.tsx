@@ -1,16 +1,25 @@
-import { Text, StyleSheet } from "react-native";
+import { Text, StyleSheet, View } from "react-native";
 import { Colors } from "../../util/Colors";
 
 interface Props {
   children: string;
-  style: {};
+  style?: {};
 }
 
 export function Title({ children, style }: Props): JSX.Element {
-  return (<Text style={[styles.text, style]}>{children}</Text>);
+  return (
+  <View style={styles.container}>
+
+  <Text style={[styles.text, style]}>{children}</Text>
+  </View>
+  );
 };
 
 const styles = StyleSheet.create({
+  container:{
+    paddingLeft:30,
+    paddingBottom:50,
+  },
   text: {
     fontFamily: "Roboto-Bold",
     fontSize: 34,

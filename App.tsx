@@ -21,7 +21,7 @@ function App(): JSX.Element {
         backgroundColor={Colors.backgroundLight}
         barStyle={"dark-content"}
       />
-      <NavigationContainer>
+      <NavigationContainer >
         <Stack.Navigator initialRouteName="Sign">
           <Stack.Screen
             name="Login"
