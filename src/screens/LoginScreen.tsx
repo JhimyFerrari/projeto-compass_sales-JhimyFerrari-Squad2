@@ -16,7 +16,7 @@ export function LoginScreen({ navigation }: Props): JSX.Element {
 
       <RedirectButton
         style={styles.redirectContainer}
-        onPress={() => navigation.navigate("ForgotPassword")}
+        onPress={() => navigation.navigate("ForgotPasswordScreen")}
       >
         Forgot your password?
       </RedirectButton>

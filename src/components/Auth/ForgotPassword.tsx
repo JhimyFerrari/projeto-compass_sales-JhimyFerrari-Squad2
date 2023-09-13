@@ -1,41 +1,31 @@
 import React, { useState } from "react";
 import { InputForm } from "../UI/InputForm";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View ,Text } from "react-native";
 import { Title } from "../UI/Tittle";
+import { Colors } from "../../util/Colors";
 
-interface props {
+interface Props {
   style?:{},
 };
 
-export function Sign({style}:props) {
+export function ForgotPassword({style}:Props) {
   const [enteredEmail, setEnteredEmail] = useState<string>("");
-  const [enteredPassword, setEnteredPassword] = useState("");
+ 
 
   function updateInputEmailHandler(enteredValue: string) {
     setEnteredEmail(enteredValue);
   }
-
-  function updateInputPasswordHandler(enteredValue: string) {
-    setEnteredPassword(enteredValue);
-  }
+ 
   return (
     <View style={style}>
-      <Title style={styles.tittle} >Sign Up</Title>
+      <Title style={styles.tittle} >Forgot Password</Title>
+      
       <View style={styles.formContainer}>
-        <InputForm
-          label="Name"
-          onUpdateValue={updateInputEmailHandler}
-          value={enteredEmail}
-        />
+        <Text style={styles.textMessage}>Please, enter your email address. You will receive a link to create a new password via email.</Text>
         <InputForm
           label="Email"
           onUpdateValue={updateInputEmailHandler}
           value={enteredEmail}
-        />
-        <InputForm
-          label="Password"
-          onUpdateValue={updateInputPasswordHandler}
-          value={enteredPassword}
         />
       </View>
     </View>
@@ -43,11 +33,18 @@ export function Sign({style}:props) {
 }
 
 const styles = StyleSheet.create({
+ 
   tittle:{
     paddingBottom:60,
   },
   formContainer: {
     gap: 10,
   },
+  textMessage:{
+    fontFamily:'Roboto-Medium',
+    fontSize:14,
+    width:344,
+    color:Colors.textDark
+  }
 
 });

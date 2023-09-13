@@ -38,9 +38,6 @@ export function Login({style}:props) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-  
-  },
   tittle:{
     paddingBottom:60,
   },

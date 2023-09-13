@@ -11,6 +11,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { LoginScreen } from "./src/screens/LoginScreen";
 import { Colors } from "./src/util/Colors";
 import { SignScreen } from "./src/screens/SignScreen";
+import { ForgotPasswordScreen } from "./src/screens/ForgotPasswordScreen";
 
 const Stack = createNativeStackNavigator();
 function App(): JSX.Element {
@@ -36,6 +37,17 @@ function App(): JSX.Element {
           <Stack.Screen
             name="Sign"
             component={SignScreen}
+            options={{
+              headerStyle: {
+                backgroundColor: Colors.backgroundLight,
+              },
+              title: "",
+              headerShadowVisible: false,
+            }}
+          />
+          <Stack.Screen
+            name="ForgotPasswordScreen"
+            component={ForgotPasswordScreen}
             options={{
               headerStyle: {
                 backgroundColor: Colors.backgroundLight,
