@@ -1,27 +1,28 @@
 import { StyleSheet, View } from "react-native";
 import { PrimaryButton } from "../components/UI/PrimaryButton";
-
-import { Login } from "../components/Auth/Login";
+ 
 import { Colors } from "../util/Colors";
 import { RedirectButton } from "../components/UI/RedirectButton";
+import { Sign } from "../components/Auth/Sign";
 
 interface Props {
   navigation: any;
 }
 
-export function LoginScreen({ navigation }: Props): JSX.Element {
+export function SignScreen({ navigation }: Props): JSX.Element {
   return (
     <View style={styles.container}>
-      <Login style={styles.formContainer} />
+      <Sign style={styles.formContainer} />
 
       <RedirectButton
         style={styles.redirectContainer}
-        onPress={() => navigation.navigate("ForgotPassword")}
+         
+        onPress={() => navigation.navigate("Login")}
       >
-        Forgot your password?
+        Already have an account?
       </RedirectButton>
 
-      <PrimaryButton>LOGIN</PrimaryButton>
+      <PrimaryButton>SIGN UP</PrimaryButton>
     </View>
   );
 };
