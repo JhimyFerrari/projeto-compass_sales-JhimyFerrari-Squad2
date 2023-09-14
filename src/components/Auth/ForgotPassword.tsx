@@ -1,21 +1,39 @@
-import React, { useState } from "react";
+import React from "react";
 import { InputForm } from "../UI/InputForm";
 import { StyleSheet, View, Text } from "react-native";
 import { Title } from "../UI/Tittle";
 import { Colors } from "../../util/Colors";
 import { PrimaryButton } from "../UI/PrimaryButton";
-
+import { useForm, Controller } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 interface Props {
   style?: {};
 }
-
+const schema = yup.object({
+  email: yup
+    .string()
+    .email("Not a valid email address. Should be your@email.com")
+    .required("Inform an Email"),
+});
 export function ForgotPassword({ style }: Props) {
-  const [enteredEmail, setEnteredEmail] = useState<string>("");
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
 
-  function updateInputEmailHandler(enteredValue: string) {
-    setEnteredEmail(enteredValue);
+  function handleSend(data: {}) {
+    console.log(data);
   }
-
+  const errosStyles = {
+    email: {
+      borderWidth: errors.email && 1,
+      borderColor: errors.email && Colors.error,
+    },
+  };
   return (
     <View style={style}>
       <Title>Forgot Password</Title>
@@ -26,13 +44,21 @@ export function ForgotPassword({ style }: Props) {
             Please, enter your email address. You will receive a link to create
             a new password via email.
           </Text>
-          <InputForm
-            label="Email"
-            onUpdateValue={updateInputEmailHandler}
-            value={enteredEmail}
+          <Controller
+            control={control}
+            name="email"
+            render={({ field: { onChange, value } }) => (
+              <InputForm
+              style={errosStyles.email}
+                label="Email"
+                onChangeText={onChange}
+                value={value}
+              />
+            )}
           />
+            {errors.email && <Text style={styles.labelError}>{errors.email?.message}</Text>}
         </View>
-        <PrimaryButton>SEND</PrimaryButton>
+        <PrimaryButton onPress={handleSubmit(handleSend)}>SEND</PrimaryButton>
       </View>
     </View>
   );
@@ -52,4 +78,10 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
     color: Colors.textDark,
   },
+  labelError:{
+    alignSelf:'flex-start',
+    color:Colors.buttonPrimary,
+    marginBottom:8,
+
+  }
 });

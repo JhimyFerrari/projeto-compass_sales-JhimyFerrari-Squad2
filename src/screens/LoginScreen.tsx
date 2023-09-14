@@ -1,9 +1,8 @@
 import { StyleSheet, View } from "react-native";
-import { PrimaryButton } from "../components/UI/PrimaryButton";
+
 
 import { Login } from "../components/Auth/Login";
 import { Colors } from "../util/Colors";
-import { RedirectButton } from "../components/UI/RedirectButton";
 
 interface Props {
   navigation: any;
