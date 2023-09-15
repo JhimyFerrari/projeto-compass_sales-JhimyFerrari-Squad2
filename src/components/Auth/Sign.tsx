@@ -8,6 +8,7 @@ import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { Colors } from "../../util/Colors";
+import { createUser } from "../../util/Auth";
 
 
 interface Props {
@@ -22,7 +23,7 @@ const schema = yup.object({
     .required("Inform an Email"),
   password: yup
     .string()
-    .min(4, "The password has to be more than 4 characteres")
+    .min(6, "The password has to be more than 6 characteres")
     .required("Inform a password"),
 });
 
@@ -51,8 +52,9 @@ export function Sign({ navigation, style }: Props) {
   };
 
 
-  function handleSign(data:{}){
-    console.log(data);
+  function handleSign(data:{email:string,password:string}){
+    createUser(data.email,data.password,navigation);
+
   }
 
   return (

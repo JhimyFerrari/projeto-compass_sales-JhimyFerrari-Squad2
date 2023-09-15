@@ -7,6 +7,7 @@ import { PrimaryButton } from "../UI/PrimaryButton";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { passwordReset } from "../../util/Auth";
 interface Props {
   style?: {};
 }
@@ -25,8 +26,8 @@ export function ForgotPassword({ style }: Props) {
     resolver: yupResolver(schema),
   });
 
-  function handleSend(data: {}) {
-    console.log(data);
+  function handleSend(data: {email:string}) {
+    passwordReset(data.email,navigation)
   }
   const errosStyles = {
     email: {

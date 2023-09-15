@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { InputForm } from "../UI/InputForm";
 import { StyleSheet, View,Text} from "react-native";
 import { Title } from "../UI/Tittle";
@@ -8,21 +8,26 @@ import {useForm, Controller} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { Colors } from "../../util/Colors";
+import { signIn } from "../../util/Auth";
+ 
+ 
 interface Props {
   navigation: any;
   style?: {};
 }
 const schema = yup.object({
   email: yup.string().email('Not a valid email address. Should be your@email.com').required('Inform an Email'),
-  password: yup.string().min(4, 'The password has to be more than 4 characteres').required('Inform a password')
+  password: yup.string().min(6, 'The password has to be more than 6 characteres').required('Inform a password')
 })
 export function Login({ navigation, style }: Props) {
   const {control,handleSubmit, formState:{errors}} = useForm({
     resolver: yupResolver(schema)
   });
 
-  function handleLogin(data:{}){
-    console.log(data);
+  function handleLogin(data:{email:string,password:string}){
+   
+   signIn(data.email,data.password,navigation);
+ 
 
   }
  
@@ -77,13 +82,15 @@ export function Login({ navigation, style }: Props) {
 
         <RedirectButton
           style={styles.redirectContainer}
-          onPress={() => navigation.navigate("ForgotPasswordScreen")}
+          onPress={() => navigation.navigate("ForgotPassword")}
         >
           Forgot your password?
         </RedirectButton>
 
       <PrimaryButton onPress={handleSubmit(handleLogin)} >LOGIN</PrimaryButton>
       </View>
+     
+ 
     </View>
   );
 }
