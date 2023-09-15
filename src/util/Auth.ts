@@ -42,8 +42,9 @@ export function signIn(email :string,password:string,navigation:any){
 };
 
 
-export function signOut(){
+export function signOut(navigation:any){
     auth().signOut();
+    navigation.navigate('Login');
 }
 
 export function passwordReset(email:string,navigation:any){

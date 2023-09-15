@@ -10,7 +10,7 @@ interface Props {
 export function ForgotPasswordScreen({ navigation }: Props): JSX.Element {
   return (
     <View style={styles.container}>
-      <ForgotPassword />
+      <ForgotPassword navigation={navigation} />
     </View>
   );
 }

@@ -9,7 +9,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { passwordReset } from "../../util/Auth";
 interface Props {
-  style?: {};
+  style?: {},
+  navigation:any,
 }
 const schema = yup.object({
   email: yup
@@ -17,7 +18,7 @@ const schema = yup.object({
     .email("Not a valid email address. Should be your@email.com")
     .required("Inform an Email"),
 });
-export function ForgotPassword({ style }: Props) {
+export function ForgotPassword({ style,navigation }: Props) {
   const {
     control,
     handleSubmit,
