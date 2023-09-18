@@ -59,7 +59,7 @@ export function Sign({ navigation, style }: Props) {
 
   return (
     <View style={style}>
-      <Title style={styles.tittle}>Sign Up</Title>
+      <Title>Sign Up</Title>
       <View style={styles.container}>
         <View style={styles.formContainer}>
           <Controller
@@ -122,11 +122,9 @@ const styles = StyleSheet.create({
   container: {
     alignItems: "center",
   },
-  tittle: {
-    paddingBottom: 60,
-  },
   formContainer: {
     gap: 10,
+    paddingTop:60,
     paddingBottom: 16,
   },
   redirectContainer: {

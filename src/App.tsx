@@ -24,6 +24,7 @@ function App(): JSX.Element {
    const unsubscribe= auth().onAuthStateChanged((_user) => {
       setUser(_user);
       if (initializing) {
+        
         setInitializing(false);
       }
     });

@@ -101,6 +101,7 @@ const styles = StyleSheet.create({
   },
   formContainer: {
     gap: 10,
+    paddingTop:60,
     paddingBottom:16,
   },
   redirectContainer: {

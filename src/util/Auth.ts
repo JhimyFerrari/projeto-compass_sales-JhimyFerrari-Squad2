@@ -1,13 +1,15 @@
  
 import auth from '@react-native-firebase/auth'
+
 import { Alert } from 'react-native';
-const API_KEY = 'AIzaSyAOQLtR3k922RjTID5m-qkXp1VeezEf-Y8'
+ 
  
  
 export function createUser(email :string,password:string,navigation:any){
-    auth().createUserWithEmailAndPassword(email,password)
-    .then(userCrential=>{
-       navigation.navigate('Home')
+  auth().createUserWithEmailAndPassword(email,password)
+  .then(userCredential=>{
+    auth().signOut;
+    navigation.navigate('Login')
     }).catch(error =>{
         if (error.code ==='auth/email-already-in-use') {
             Alert.alert(
@@ -44,7 +46,7 @@ export function signIn(email :string,password:string,navigation:any){
 
 export function signOut(navigation:any){
     auth().signOut();
-    navigation.navigate('Login');
+    navigation.goBack();
 }
 
 export function passwordReset(email:string,navigation:any){

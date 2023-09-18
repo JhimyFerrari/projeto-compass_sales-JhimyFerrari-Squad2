@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
     width: 344,
     height: 66,
     borderRadius: 4,
+    elevation:4,
   },
   textContainer:{
     paddingLeft:10,

@@ -4,6 +4,7 @@ import { PrimaryButton } from "../components/UI/PrimaryButton";
 import { Colors } from "../util/Colors";
 import { RedirectButton } from "../components/UI/RedirectButton";
 import { Sign } from "../components/Auth/Sign";
+import { SocialAuth } from "../components/Auth/SocialAuth";
 
 interface Props {
   navigation: any;
@@ -13,8 +14,7 @@ export function SignScreen({ navigation }: Props): JSX.Element {
   return (
     <View style={styles.container}>
       <Sign navigation={navigation}   />
-
-     
+      <SocialAuth style={styles.socialContainer}>Or sign up with social account</SocialAuth>
     </View>
   );
 };
@@ -22,8 +22,13 @@ export function SignScreen({ navigation }: Props): JSX.Element {
 const styles = StyleSheet.create({
   container: {
     flex:1,
+    justifyContent:'space-between',
     backgroundColor: Colors.backgroundLight,
   },
+  socialContainer:{
+    marginBottom:20
+
+  }
  
  
 });

@@ -8,6 +8,7 @@ export const Colors = {
     textGray:'#9B9B9B',
     textLight:'#ffffff',
     error:'#F01F0E',
+    iconBackground:'#ffff',
 }
 
 
