@@ -45,6 +45,7 @@ export function Login({ navigation, style }: Props) {
 
   return (
     <View style={style}>
+      
       <Title>Login</Title>
       <View style={styles.container}>
         <View style={styles.formContainer}>

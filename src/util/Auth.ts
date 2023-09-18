@@ -21,6 +21,15 @@ export function createUser(email :string,password:string,navigation:any){
             )
             
         }
+        else {
+          Alert.alert(
+            'Something went wrong',
+            'Something is causing problems',
+            [{
+                text:'Ok'
+            }]
+        )
+        }
     
     });
      
@@ -46,7 +55,7 @@ export function signIn(email :string,password:string,navigation:any){
 
 export function signOut(navigation:any){
     auth().signOut();
-    navigation.goBack();
+    navigation.replace('Sign');
 }
 
 export function passwordReset(email:string,navigation:any){

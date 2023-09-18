@@ -68,7 +68,7 @@ export function Sign({ navigation, style }: Props) {
             render={({ field: { onChange, value } }) => (
               <InputForm
                 style={errosStyles.username}
-                label="User Name"
+                label="Name"
                 onChangeText={onChange}
                 value={value}
               />

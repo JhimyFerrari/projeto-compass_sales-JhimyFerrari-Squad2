@@ -1,4 +1,4 @@
-import { StyleSheet, View } from "react-native";
+import { StatusBar, StyleSheet, View } from "react-native";
 
 
 import { Login } from "../components/Auth/Login";
@@ -11,10 +11,16 @@ interface Props {
 
 export function LoginScreen({ navigation }: Props): JSX.Element {
   return (
+    <>
+      <StatusBar
+        backgroundColor={Colors.backgroundLight}
+        barStyle={"dark-content"}
+      />
     <View style={styles.container}>
       <Login navigation={navigation} />
       <SocialAuth style={styles.socialContainer}>Or login with social account</SocialAuth>
     </View>
+    </>
   );
 }
 

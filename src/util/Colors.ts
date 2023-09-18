@@ -1,5 +1,6 @@
 export const Colors = {
     backgroundLight: '#F9F9F9',
+    backgroundDark:'#0e0d0dff',
     buttonPrimary:'#db3022',
     buttonSecondary:'#222222',
     buttonPrimaryRipple:'#da564a',

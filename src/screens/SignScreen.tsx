@@ -1,8 +1,7 @@
-import { StyleSheet, View } from "react-native";
+import { StatusBar, StyleSheet, View } from "react-native";
 import { PrimaryButton } from "../components/UI/PrimaryButton";
  
 import { Colors } from "../util/Colors";
-import { RedirectButton } from "../components/UI/RedirectButton";
 import { Sign } from "../components/Auth/Sign";
 import { SocialAuth } from "../components/Auth/SocialAuth";
 
@@ -12,10 +11,16 @@ interface Props {
 
 export function SignScreen({ navigation }: Props): JSX.Element {
   return (
+    <>
+    <StatusBar
+        backgroundColor={Colors.backgroundLight}
+        barStyle={"dark-content"}
+      />
     <View style={styles.container}>
       <Sign navigation={navigation}   />
       <SocialAuth style={styles.socialContainer}>Or sign up with social account</SocialAuth>
     </View>
+    </>
   );
 };
 

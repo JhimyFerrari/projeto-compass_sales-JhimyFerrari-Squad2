@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     container:{
         alignItems:'center',
         gap:12,
-        overflow:'hidden'
+        
     },
     text:{
         fontSize:14,

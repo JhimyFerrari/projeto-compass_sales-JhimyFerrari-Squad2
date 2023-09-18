@@ -5,7 +5,7 @@
  * @format
  */
 
-import { ActivityIndicator, SafeAreaView, StatusBar, StyleSheet, Text, View } from "react-native";
+import { ActivityIndicator, StyleSheet, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { LoginScreen } from "./screens/LoginScreen";
@@ -43,10 +43,6 @@ function App(): JSX.Element {
   }
   return (
     <>
-      <StatusBar
-        backgroundColor={Colors.backgroundLight}
-        barStyle={"dark-content"}
-      />
       <NavigationContainer>
         <Stack.Navigator initialRouteName={inicialPage}>
           <Stack.Screen

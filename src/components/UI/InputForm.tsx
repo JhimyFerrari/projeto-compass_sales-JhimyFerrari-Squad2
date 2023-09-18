@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { StyleSheet, TextInput, View,Text } from "react-native";
 import { Colors } from "../../util/Colors";
 
@@ -14,20 +14,25 @@ interface Props {
 };
 
 export function InputForm({ label,value, onChangeText, secureTextEntry=false, style}: Props): JSX.Element {
- 
+ const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(()=>{
+setIsVisible(value !=='')
+  },[value])
  
   return (
     <View style={[styles.container,style]}>
+     
   
-      <View style={styles.textContainer}>
-        
+      <View >
+        {isVisible && ( <Text style={[styles.guideText]}>{label}</Text>)}
+       
         <TextInput
           style={styles.userText}
           placeholder={label}
           onChangeText={onChangeText}
           value={value }
           secureTextEntry={secureTextEntry}
-           
         ></TextInput>
       </View>
     </View>
@@ -42,17 +47,22 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     elevation:4,
   },
-  textContainer:{
-    paddingLeft:10,
+ 
+  guideText:{
+    fontFamily:'Roboto-Regular',
+    fontSize:14,
+    position:'absolute',
+    top:2,
+    left:4,
+
+    
   },
   userText: {
     fontFamily: "Roboto-Medium",
     color: Colors.textDark,
     fontSize: 16,
-    marginTop:10,
+    position:'absolute',
+    top:12,
+    left:2,
   },
-  guideText:{
-    fontFamily:'Roboto-Regular',
-    fontSize:40
-  }
 });
