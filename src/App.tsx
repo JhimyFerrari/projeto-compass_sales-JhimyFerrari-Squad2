@@ -21,25 +21,23 @@ function App(): JSX.Element {
   const [initializing, setInitializing] = useState(true);
 
   useEffect(() => {
-   const unsubscribe= auth().onAuthStateChanged((_user) => {
+    const unsubscribe = auth().onAuthStateChanged((_user) => {
       setUser(_user);
       if (initializing) {
-        
         setInitializing(false);
       }
     });
     return unsubscribe;
-  },[]);
+  }, []);
 
-  let inicialPage= user ? 'Home': 'Sign'
+  let inicialPage = user ? "Home" : "Sign";
 
   if (initializing) {
-    return(
+    return (
       <View style={styles.loader}>
-        <ActivityIndicator size={'large'} color={Colors.error} />
+        <ActivityIndicator size={"large"} color={Colors.error} />
       </View>
     );
-    
   }
   return (
     <>
@@ -96,11 +94,11 @@ function App(): JSX.Element {
 }
 
 const styles = StyleSheet.create({
-  loader:{
-    flex:1,
-    justifyContent:'center',
-    alignItems:'center',
-  }
+  loader: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
 });
 
 export default App;

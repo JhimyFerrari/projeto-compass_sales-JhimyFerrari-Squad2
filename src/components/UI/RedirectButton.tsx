@@ -20,7 +20,7 @@ export function RedirectButton({
       <Pressable
         style={[
           styles.container,
-          rowReverse && { flexDirection: "row-reverse" }
+          rowReverse && { flexDirection: "row-reverse" },
         ]}
         onPress={onPress}
       >
@@ -34,7 +34,7 @@ export function RedirectButton({
       </Pressable>
     </View>
   );
-};
+}
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",

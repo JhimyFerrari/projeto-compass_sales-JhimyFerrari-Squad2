@@ -9,8 +9,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { passwordReset } from "../../util/Auth";
 interface Props {
-  style?: {},
-  navigation:any,
+  style?: {};
+  navigation: any;
 }
 const schema = yup.object({
   email: yup
@@ -18,7 +18,7 @@ const schema = yup.object({
     .email("Not a valid email address. Should be your@email.com")
     .required("Inform an Email"),
 });
-export function ForgotPassword({ style,navigation }: Props) {
+export function ForgotPassword({ style, navigation }: Props) {
   const {
     control,
     handleSubmit,
@@ -27,8 +27,8 @@ export function ForgotPassword({ style,navigation }: Props) {
     resolver: yupResolver(schema),
   });
 
-  function handleSend(data: {email:string}) {
-    passwordReset(data.email,navigation)
+  function handleSend(data: { email: string }) {
+    passwordReset(data.email, navigation);
   }
   const errosStyles = {
     email: {
@@ -51,14 +51,16 @@ export function ForgotPassword({ style,navigation }: Props) {
             name="email"
             render={({ field: { onChange, value } }) => (
               <InputForm
-              style={errosStyles.email}
+                style={errosStyles.email}
                 label="Email"
                 onChangeText={onChange}
                 value={value}
               />
             )}
           />
-            {errors.email && <Text style={styles.labelError}>{errors.email?.message}</Text>}
+          {errors.email && (
+            <Text style={styles.labelError}>{errors.email?.message}</Text>
+          )}
         </View>
         <PrimaryButton onPress={handleSubmit(handleSend)}>SEND</PrimaryButton>
       </View>
@@ -80,10 +82,9 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
     color: Colors.textDark,
   },
-  labelError:{
-    alignSelf:'flex-start',
-    color:Colors.buttonPrimary,
-    marginBottom:8,
-
-  }
+  labelError: {
+    alignSelf: "flex-start",
+    color: Colors.buttonPrimary,
+    marginBottom: 8,
+  },
 });

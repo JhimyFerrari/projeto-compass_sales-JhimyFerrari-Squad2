@@ -10,7 +10,6 @@ import * as yup from "yup";
 import { Colors } from "../../util/Colors";
 import { createUser } from "../../util/Auth";
 
-
 interface Props {
   navigation: any;
   style?: {};
@@ -51,10 +50,8 @@ export function Sign({ navigation, style }: Props) {
     },
   };
 
-
-  function handleSign(data:{email:string,password:string}){
-    createUser(data.email,data.password,navigation);
-
+  function handleSign(data: { email: string; password: string }) {
+    createUser(data.email, data.password, navigation);
   }
 
   return (
@@ -74,8 +71,10 @@ export function Sign({ navigation, style }: Props) {
               />
             )}
           />
-            {errors.username && <Text style={styles.labelError}>{errors.username?.message}</Text>}
-          
+          {errors.username && (
+            <Text style={styles.labelError}>{errors.username?.message}</Text>
+          )}
+
           <Controller
             control={control}
             name="email"
@@ -88,7 +87,9 @@ export function Sign({ navigation, style }: Props) {
               />
             )}
           />
-            {errors.email && <Text style={styles.labelError}>{errors.email?.message}</Text>}
+          {errors.email && (
+            <Text style={styles.labelError}>{errors.email?.message}</Text>
+          )}
           <Controller
             control={control}
             name="password"
@@ -102,7 +103,9 @@ export function Sign({ navigation, style }: Props) {
               />
             )}
           />
-            {errors.password && <Text style={styles.labelError}>{errors.password?.message}</Text>}
+          {errors.password && (
+            <Text style={styles.labelError}>{errors.password?.message}</Text>
+          )}
         </View>
 
         <RedirectButton
@@ -112,7 +115,9 @@ export function Sign({ navigation, style }: Props) {
           Already have an account?
         </RedirectButton>
 
-        <PrimaryButton onPress={handleSubmit(handleSign)}>SIGN UP</PrimaryButton>
+        <PrimaryButton onPress={handleSubmit(handleSign)}>
+          SIGN UP
+        </PrimaryButton>
       </View>
     </View>
   );
@@ -124,7 +129,7 @@ const styles = StyleSheet.create({
   },
   formContainer: {
     gap: 10,
-    paddingTop:60,
+    paddingTop: 60,
     paddingBottom: 16,
   },
   redirectContainer: {
@@ -132,10 +137,9 @@ const styles = StyleSheet.create({
     alignItems: "flex-end",
     paddingBottom: 32,
   },
-  labelError:{
-    alignSelf:'flex-start',
-    color:Colors.buttonPrimary,
-    marginBottom:8,
-
-  }
+  labelError: {
+    alignSelf: "flex-start",
+    color: Colors.buttonPrimary,
+    marginBottom: 8,
+  },
 });

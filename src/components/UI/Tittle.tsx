@@ -8,17 +8,16 @@ interface Props {
 
 export function Title({ children, style }: Props): JSX.Element {
   return (
-  <View style={styles.container}>
-
-  <Text style={[styles.text, style]}>{children}</Text>
-  </View>
+    <View style={styles.container}>
+      <Text style={[styles.text, style]}>{children}</Text>
+    </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
-  container:{
-    paddingLeft:30,
-    paddingBottom:50,
+  container: {
+    paddingLeft: 30,
+    paddingBottom: 50,
   },
   text: {
     fontFamily: "Roboto-Bold",

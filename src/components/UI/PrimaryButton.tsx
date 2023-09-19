@@ -29,15 +29,14 @@ const styles = StyleSheet.create({
     width: 343,
     height: 48,
     borderRadius: 25,
-    overflow:'hidden',
+    overflow: "hidden",
   },
-  pressableContainer:{
+  pressableContainer: {
     alignItems: "center",
     justifyContent: "center",
     width: 343,
     height: 48,
     borderRadius: 25,
-
   },
   text: {
     color: Colors.textLight,
